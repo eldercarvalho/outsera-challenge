@@ -1,0 +1,3 @@
+class Void {
+  const Void();
+}
