@@ -34,13 +34,13 @@ class MovieCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Ano: ${movie.year}',
+                      'Year: ${movie.year}',
                       style: context.textTheme.bodySmall,
                     ),
                     12.width,
                     Expanded(
                       child: Text(
-                        'Produtores: ${movie.producers.join(', ')}',
+                        'Producers: ${movie.producers.join(', ')}',
                         style: context.textTheme.bodySmall,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,

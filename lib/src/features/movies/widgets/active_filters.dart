@@ -33,6 +33,7 @@ class ActiveFilters extends StatelessWidget {
               onDeleted: onClearYear,
               backgroundColor: context.colorScheme.primary,
               deleteIconColor: context.colorScheme.onPrimary,
+              side: BorderSide.none,
             ),
           if (filters.winnersOnly)
             Padding(
@@ -48,6 +49,7 @@ class ActiveFilters extends StatelessWidget {
                 onDeleted: onClearWinnersOnly,
                 backgroundColor: context.colorScheme.primary,
                 deleteIconColor: context.colorScheme.onPrimary,
+                side: BorderSide.none,
               ),
             ),
         ],

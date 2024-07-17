@@ -24,7 +24,7 @@ class YearCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Ano:',
+            'Year:',
             style: context.textTheme.bodySmall?.copyWith(
               color: context.colorScheme.primary,
             ),

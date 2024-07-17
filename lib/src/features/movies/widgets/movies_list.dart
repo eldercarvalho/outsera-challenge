@@ -63,7 +63,11 @@ class MoviesList extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const CircularProgressIndicator(),
+                child: SizedBox(
+                  width: 30.w,
+                  height: 30.w,
+                  child: const CircularProgressIndicator(),
+                ),
               ),
             ),
           )

@@ -22,67 +22,53 @@ class MinMaxIntervervalProducers extends StatelessWidget {
         }
 
         if (state is DashboardProducersLoaded) {
+          final maxProducer = state.minMaxIntervalProducers.max.first;
+          final minProducer = state.minMaxIntervalProducers.min.first;
+
           return Padding(
             padding: EdgeInsets.only(top: 24.h),
             child: DashboardPanel(
               iconColor: Colors.greenAccent,
               titleIcon: Icons.schedule_outlined,
               title: 'Producers with long and short interval between wins',
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w)
-                        .copyWith(bottom: 16.h),
-                    child: Text(
-                      'Maximun',
-                      style: context.textTheme.bodyLarge
-                          ?.copyWith(color: Colors.redAccent),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w)
+                              .copyWith(bottom: 8.h),
+                          child: Text(
+                            'Maximun',
+                            style: context.textTheme.bodyLarge
+                                ?.copyWith(color: Colors.redAccent),
+                          ),
+                        ),
+                        ProducerCard(producer: maxProducer),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 170.h,
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      scrollDirection: Axis.horizontal,
-                      separatorBuilder: (context, index) => 16.width,
-                      itemCount: state.minMaxIntervalProducers.max.length,
-                      itemBuilder: (context, index) {
-                        final producer =
-                            state.minMaxIntervalProducers.max[index];
-
-                        return ProducerCard(producer: producer);
-                      },
+                    16.width,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w)
+                              .copyWith(bottom: 8.h),
+                          child: Text(
+                            'Minimum',
+                            style: context.textTheme.bodyLarge
+                                ?.copyWith(color: Colors.greenAccent),
+                          ),
+                        ),
+                        ProducerCard(producer: minProducer),
+                      ],
                     ),
-                  ),
-                  20.height,
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w)
-                        .copyWith(bottom: 16.h),
-                    child: Text(
-                      'Minimum',
-                      style: context.textTheme.bodyLarge
-                          ?.copyWith(color: Colors.greenAccent),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 170.h,
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      scrollDirection: Axis.horizontal,
-                      separatorBuilder: (context, index) => 16.width,
-                      itemCount: state.minMaxIntervalProducers.min.length,
-                      itemBuilder: (context, index) {
-                        final producer =
-                            state.minMaxIntervalProducers.min[index];
-
-                        return ProducerCard(producer: producer);
-                      },
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
@@ -102,19 +88,39 @@ class MinMaxIntervervalProducers extends StatelessWidget {
         children: [
           Skeleton(
             width: 250.w,
-            height: 18.h,
+            height: 30.h,
           ),
           16.height,
           Row(
             children: [
-              Skeleton(
-                width: 200.w,
-                height: 120.h,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Skeleton(
+                    width: 100.w,
+                    height: 10.h,
+                  ),
+                  8.height,
+                  Skeleton(
+                    width: 200.w,
+                    height: 170.h,
+                  ),
+                ],
               ),
               16.width,
-              Skeleton(
-                width: 200.w,
-                height: 120.h,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Skeleton(
+                    width: 100.w,
+                    height: 10.h,
+                  ),
+                  8.height,
+                  Skeleton(
+                    width: 200.w,
+                    height: 170.h,
+                  ),
+                ],
               ),
             ],
           )

@@ -13,7 +13,7 @@ class ProducerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 200.w,
-      // height: 120.h,
+      height: 170.h,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: context.colorScheme.surfaceContainerHighest,
