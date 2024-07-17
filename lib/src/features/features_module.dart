@@ -10,6 +10,8 @@ abstract class FeaturesModule {
   DashboardCubit get dashboardCubit => DashboardCubit(
         yearRepository: getIt(),
         studioRepository: getIt(),
+        producerRepository: getIt(),
+        movieRepository: getIt(),
       );
 
   @injectable

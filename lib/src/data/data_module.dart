@@ -19,4 +19,9 @@ abstract class DataModule {
   StudioRepository get studioRepository => StudioRepositoryImpl(
         httpClient: getIt(),
       );
+
+  @lazySingleton
+  ProducerRepository get producerRepository => ProducerRepositoryImpl(
+        httpClient: getIt(),
+      );
 }

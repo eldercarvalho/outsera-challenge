@@ -13,7 +13,11 @@ Future<T> safeRequest<T>({
 }) async {
   try {
     final response = await request();
-    var responseData = response.data[dataKey];
+    dynamic responseData = response.data;
+
+    if (dataKey != null) {
+      responseData = response.data[dataKey];
+    }
 
     if (T == Void) {
       return const Void() as T;
@@ -28,7 +32,7 @@ Future<T> safeRequest<T>({
       return parseData(responseData) as T;
     }
 
-    return responseData;
+    return responseData as T;
   } on DioException catch (error) {
     if (error.response != null) {
       throw ServerException(

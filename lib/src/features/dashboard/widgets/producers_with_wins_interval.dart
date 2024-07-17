@@ -8,15 +8,13 @@ import '../cubit/cubit.dart';
 import 'dashboard_panel.dart';
 import 'studio_card.dart';
 
-class StudiosWithWins extends StatelessWidget {
-  const StudiosWithWins({super.key});
+class ProducersWithWitnInterval extends StatelessWidget {
+  const ProducersWithWitnInterval({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder(
       bloc: BlocProvider.of<DashboardCubit>(context),
-      buildWhen: (_, state) =>
-          state is DashboardStudiosLoaded || state is DashboardLoading,
       builder: (context, state) {
         if (state is DashboardLoading) {
           return _buildSkeleton();
@@ -31,7 +29,7 @@ class StudiosWithWins extends StatelessWidget {
             padding: EdgeInsets.only(top: 24.h),
             child: DashboardPanel(
               iconColor: Colors.purpleAccent,
-              titleIcon: Icons.star_outline,
+              titleIcon: Icons.movie_outlined,
               title: 'Top 3 studios with winners',
               child: SizedBox(
                 height: 120.h,

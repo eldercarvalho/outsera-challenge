@@ -36,3 +36,23 @@ class DashboardStudiosLoaded extends DashboardState {
   @override
   List<Object?> get props => [studios];
 }
+
+class DashboardProducersLoaded extends DashboardState {
+  final MinMaxIntervalProducers minMaxIntervalProducers;
+
+  DashboardProducersLoaded(this.minMaxIntervalProducers);
+
+  @override
+  List<Object?> get props => [minMaxIntervalProducers];
+}
+
+class DashboardMoviesSearching extends DashboardState {}
+
+class DashboardMoviesLoaded extends DashboardState {
+  final PaginableResult<Movie> movies;
+
+  DashboardMoviesLoaded(this.movies);
+
+  @override
+  List<Object?> get props => [movies];
+}

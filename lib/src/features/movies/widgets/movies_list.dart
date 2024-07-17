@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:outsera_challenge/src/entities/movie_entity.dart';
-import 'package:outsera_challenge/src/shared/extensions/extensions.dart';
+import 'package:outsera_challenge/src/shared/shared.dart';
 
 import '../cubit/cubit.dart';
-import 'movie_card.dart';
 
 class MoviesList extends StatelessWidget {
   const MoviesList({

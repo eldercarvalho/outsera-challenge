@@ -9,12 +9,14 @@ class DashboardPanel extends StatelessWidget {
     required this.child,
     required this.titleIcon,
     required this.iconColor,
+    this.withPading = false,
   });
 
   final String title;
   final Widget child;
   final IconData titleIcon;
   final Color iconColor;
+  final bool withPading;
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +38,20 @@ class DashboardPanel extends StatelessWidget {
                   color: iconColor,
                 ),
                 8.width,
-                Text(
-                  title,
-                  style: context.textTheme.titleLarge,
+                Expanded(
+                  child: Text(
+                    title,
+                    style: context.textTheme.titleLarge,
+                  ),
                 ),
               ],
             ),
           ),
           16.height,
-          child,
+          withPading
+              ? Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w), child: child)
+              : child,
         ],
       ),
     );

@@ -24,7 +24,7 @@ class YearsWithWinners extends StatelessWidget {
           return DashboardPanel(
             titleIcon: Icons.emoji_events_outlined,
             iconColor: Colors.amber,
-            title: 'Years with more than one winner',
+            title: 'Years with multiple winners',
             child: SizedBox(
               height: 120.h,
               child: ListView.separated(

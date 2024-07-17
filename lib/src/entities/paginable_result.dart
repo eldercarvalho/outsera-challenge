@@ -11,7 +11,7 @@ class PaginableResult<T> extends Equatable {
 
   static PaginableResult<T> empty<T>() => const PaginableResult(
         data: [],
-        page: 0,
+        page: -1,
         total: 0,
         totalPages: 0,
       );

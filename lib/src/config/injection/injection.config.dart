@@ -40,6 +40,8 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i6.MovieRepository>(() => dataModule.movieRepositoryImpl);
     gh.lazySingleton<_i6.YearRepository>(() => dataModule.yearRepository);
     gh.lazySingleton<_i6.StudioRepository>(() => dataModule.studioRepository);
+    gh.lazySingleton<_i6.ProducerRepository>(
+        () => dataModule.producerRepository);
     return this;
   }
 }

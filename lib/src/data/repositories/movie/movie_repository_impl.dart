@@ -14,7 +14,7 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<Failure, PaginableResult<Movie>>> getAll({
-    int page = 1,
+    int page = 0,
     int limit = 20,
     bool? winnersOnly,
     int? year,

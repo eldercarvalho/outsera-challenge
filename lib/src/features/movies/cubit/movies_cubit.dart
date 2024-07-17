@@ -35,7 +35,7 @@ class MoviesCubit extends Cubit<MoviesState> {
     }
 
     final result = await _movieRepository.getAll(
-      page: paginate ? _lastResult.page + 1 : 1,
+      page: paginate ? _lastResult.page + 1 : 0,
       year: year,
       winnersOnly: winnersOnly,
     );

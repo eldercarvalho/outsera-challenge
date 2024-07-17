@@ -25,12 +25,12 @@ class MovieCard extends StatelessWidget {
               children: [
                 Text(
                   '${movie.id} ${movie.title}',
-                  style: context.textTheme.titleLarge?.copyWith(
+                  style: context.textTheme.titleMedium?.copyWith(
                     color: context.colorScheme.primary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                6.height,
+                12.height,
                 Row(
                   children: [
                     Text(

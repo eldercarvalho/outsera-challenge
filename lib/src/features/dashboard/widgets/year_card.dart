@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:outsera_challenge/src/entities/year_entity.dart';
 import 'package:outsera_challenge/src/shared/extensions/extensions.dart';
 
+import 'result_value.dart';
+
 class YearCard extends StatelessWidget {
   const YearCard({super.key, required this.year});
 
@@ -23,7 +25,9 @@ class YearCard extends StatelessWidget {
         children: [
           Text(
             'Ano:',
-            style: context.textTheme.bodySmall,
+            style: context.textTheme.bodySmall?.copyWith(
+              color: context.colorScheme.primary,
+            ),
           ),
           3.height,
           Text(
@@ -31,9 +35,9 @@ class YearCard extends StatelessWidget {
             style: context.textTheme.titleLarge,
           ),
           16.height,
-          Text(
-            'Winners: ${year.winnersCount}',
-            style: context.textTheme.bodyLarge,
+          ResultValue(
+            label: 'Winners',
+            value: year.winnersCount.toString(),
           ),
         ],
       ),

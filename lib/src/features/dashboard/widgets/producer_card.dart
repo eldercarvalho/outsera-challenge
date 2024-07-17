@@ -1,14 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:outsera_challenge/src/entities/studio_entity.dart';
+import 'package:outsera_challenge/src/entities/producer_entity.dart';
+import 'package:outsera_challenge/src/features/dashboard/widgets/result_value.dart';
 import 'package:outsera_challenge/src/shared/extensions/extensions.dart';
 
-import 'result_value.dart';
+class ProducerCard extends StatelessWidget {
+  const ProducerCard({super.key, required this.producer});
 
-class StudioCard extends StatelessWidget {
-  const StudioCard({super.key, required this.studio});
-
-  final Studio studio;
+  final Producer producer;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +23,14 @@ class StudioCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Studio:',
+            'Producer:',
             style: context.textTheme.bodySmall?.copyWith(
               color: context.colorScheme.primary,
             ),
           ),
           3.height,
           Text(
-            studio.name,
+            producer.name,
             style: context.textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.bold,
             ),
@@ -40,8 +39,16 @@ class StudioCard extends StatelessWidget {
           ),
           16.height,
           ResultValue(
-            label: 'Wins Count:',
-            value: studio.winCount.toString(),
+            label: 'Interval:',
+            value: producer.intervalBetweenWins.toString(),
+          ),
+          ResultValue(
+            label: 'Previous Year:',
+            value: producer.previousWinYear.toString(),
+          ),
+          ResultValue(
+            label: 'Following Year:',
+            value: producer.followingWinYear.toString(),
           ),
         ],
       ),
