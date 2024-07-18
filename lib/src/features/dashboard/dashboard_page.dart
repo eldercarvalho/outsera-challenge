@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:outsera_challenge/src/config/injection/injection.dart';
+import 'package:outsera_challenge/src/shared/extensions/extensions.dart';
 
 import 'cubit/cubit.dart';
 import 'widgets/widgets.dart';
@@ -27,7 +28,10 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title: Text(
+          'Dashboard',
+          style: context.textTheme.titleLarge,
+        ),
       ),
       body: BlocProvider(
         create: (context) => _cubit,
