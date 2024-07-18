@@ -1,3 +1,5 @@
+// coverage:ignore-file
+
 import 'package:equatable/equatable.dart';
 
 class RequestData extends Equatable {
@@ -35,37 +37,5 @@ abstract class HttpClient {
     required String path,
     bool authenticated = false,
     Map<String, dynamic> queryParams = const {},
-  });
-
-  Future<HttpResponse> post({
-    required String path,
-    bool authenticated = false,
-    Map<String, dynamic> queryParams = const {},
-    dynamic data,
-  });
-
-  Future<HttpResponse> patch({
-    required String path,
-    bool authenticated = false,
-    Map<String, dynamic> queryParams = const {},
-    dynamic data,
-  });
-
-  Future<HttpResponse> put({
-    required String path,
-    bool authenticated = false,
-    Map<String, dynamic> queryParams = const {},
-    dynamic data,
-  });
-
-  Future<HttpResponse> delete({
-    required String path,
-    bool authenticated = false,
-  });
-
-  Future<HttpResponse> download({
-    required String url,
-    required String path,
-    bool authenticated = false,
   });
 }

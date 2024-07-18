@@ -36,7 +36,7 @@ class YearCard extends StatelessWidget {
           ),
           16.height,
           ResultValue(
-            label: 'Winners',
+            label: 'Winners:',
             value: year.winnersCount.toString(),
           ),
         ],

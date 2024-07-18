@@ -23,6 +23,7 @@ class ActiveFilters extends StatelessWidget {
         children: [
           if (filters.hasYear)
             Chip(
+              key: const Key('active_filters_year_chip'),
               label: Text(
                 'Year: ${filters.year}',
                 style: context.textTheme.labelMedium?.copyWith(
@@ -39,6 +40,7 @@ class ActiveFilters extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8.w),
               child: Chip(
+                key: const Key('active_filters_winners_chip'),
                 label: Text(
                   'Winners Only',
                   style: context.textTheme.labelMedium?.copyWith(

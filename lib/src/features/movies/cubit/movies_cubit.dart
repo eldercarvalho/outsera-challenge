@@ -16,7 +16,12 @@ class MoviesCubit extends Cubit<MoviesState> {
   }
 
   bool _hasReachTotalPages = false;
-  PaginableResult<Movie> _lastResult = PaginableResult.empty();
+  PaginableResult<Movie> _lastResult = const PaginableResult<Movie>(
+    data: [],
+    page: -1,
+    total: 0,
+    totalPages: 0,
+  );
 
   Future<void> getMovies({
     int? year,
@@ -44,11 +49,8 @@ class MoviesCubit extends Cubit<MoviesState> {
       (failure) => emit(MoviesStateFailure('message')),
       (paginableMovies) {
         if (paginate) {
-          _lastResult = _lastResult.copyWith(
+          _lastResult = paginableMovies.copyWith(
             data: _lastResult.data + paginableMovies.data,
-            page: paginableMovies.page,
-            total: paginableMovies.total,
-            totalPages: paginableMovies.totalPages,
           );
 
           if (_lastResult.page >= paginableMovies.totalPages) {

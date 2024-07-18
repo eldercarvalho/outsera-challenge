@@ -34,10 +34,12 @@ class _MainPageState extends State<MainPage> {
         onTap: _goToPage,
         items: const [
           BottomNavigationBarItem(
+            key: Key('nav_dashboard'),
             icon: Icon(Icons.dashboard_outlined),
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
+            key: Key('nav_movies'),
             icon: Icon(Icons.movie_outlined),
             label: 'Movies',
           ),

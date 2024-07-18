@@ -1,0 +1,12 @@
+{
+  "studios": [
+      {
+          "name": "Columbia Pictures",
+          "winCount": 7
+      },
+      {
+          "name": "Paramount Pictures",
+          "winCount": 6
+      }
+  ]
+}

@@ -9,7 +9,7 @@ class PaginableResult<T> extends Equatable {
   bool get hasReachedTotalPages => page >= totalPages;
   bool get isFirstPage => page == 1;
 
-  static PaginableResult<T> empty<T>() => const PaginableResult(
+  static PaginableResult<T> empty<T, R>() => const PaginableResult(
         data: [],
         page: -1,
         total: 0,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:outsera_challenge/src/shared/extensions/extensions.dart';
+import 'package:outsera_challenge/src/shared/shared.dart';
 
 class Filters {
   final int year;
@@ -36,22 +36,12 @@ class FiltersDialog extends StatefulWidget {
 class _FiltersDialogState extends State<FiltersDialog> {
   int _selectedYear = 0;
   bool _winnersOnly = false;
-  final List<int> _years = [];
 
   @override
   void initState() {
-    int currentYear = DateTime.now().year;
-    for (int year = 1900; year <= currentYear; year++) {
-      _years.add(year);
-    }
-
-    _years.add(0);
-
     if (widget.filters != null) {
       _selectedYear = widget.filters!.year;
       _winnersOnly = widget.filters!.winnersOnly;
-    } else {
-      _selectedYear = _years.last;
     }
 
     super.initState();
@@ -72,19 +62,9 @@ class _FiltersDialogState extends State<FiltersDialog> {
             'Year',
             style: context.textTheme.labelMedium,
           ),
-          DropdownButton<int>(
-            items: _years.reversed.map<DropdownMenuItem<int>>((int year) {
-              return DropdownMenuItem<int>(
-                value: year,
-                child: year == 0
-                    ? const Text('Selecione o ano')
-                    : Text(year.toString()),
-              );
-            }).toList(),
-            onChanged: (newValue) => setState(() => _selectedYear = newValue!),
+          YearsDropdown(
             value: _selectedYear,
-            // underline: const SizedBox.shrink(),
-            isExpanded: true,
+            onChanged: (newValue) => setState(() => _selectedYear = newValue),
           ),
           16.height,
           Row(

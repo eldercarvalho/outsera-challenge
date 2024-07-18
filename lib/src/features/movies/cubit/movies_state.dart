@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:outsera_challenge/src/entities/entities.dart';
 
-sealed class MoviesState extends Equatable {
+abstract class MoviesState extends Equatable {
   @override
   List<Object?> get props => [];
 }

@@ -1,0 +1,45 @@
+{
+  "content":[
+      {
+          "id": 1, 
+          "year": 1994,   
+          "title":"The Shawshank Redemption",   
+          "studios":["Castle Rock Entertainment"],   
+          "producers":["Niki Marvin"],
+          "winner":true
+      },
+      {
+          "id": 2,
+          "year": 1972,
+          "title":"The Godfather",
+          "studios":["Paramount Pictures"],
+          "producers":["Albert S. Ruddy"],
+          "winner":true
+      }
+  ],
+  "pageable":
+      {
+          "sort":
+          {
+              "sorted":false,
+              "unsorted":true
+          },
+          "pageSize": 10,
+          "pageNumber":1,
+          "offset":0,
+          "paged":true,
+          "unpaged":false
+      },
+  "totalElements":999,
+  "last":false,
+  "totalPages":99,
+  "first":true,
+  "sort":
+      {
+          "sorted":false,
+          "unsorted":true
+      },
+  "number":0,
+  "numberOfElements":99,
+  "size":99
+}
