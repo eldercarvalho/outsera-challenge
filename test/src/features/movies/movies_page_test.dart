@@ -95,48 +95,42 @@ void main() {
       expect(find.byKey(const Key('active_filters_year_chip')), findsOneWidget);
     });
 
-    // testWidgets('should a loading when paginating', (tester) async {
-    //   when(() => moviesCubit.state).thenReturn(MoviesStateInitial());
-    //   when(() => moviesCubit.getMovies()).thenAnswer((_) async {
-    //     when(() => moviesCubit.state)
-    //         .thenReturn(MoviesStateLoaded(paginableMovies.copyWith(
-    //       page: 1,
-    //       data: [
-    //         ...paginableMovies.data,
-    //         ...paginableMovies.data,
-    //         ...paginableMovies.data,
-    //         ...paginableMovies.data,
-    //       ],
-    //       total: 100,
-    //       totalPages: 90,
-    //     )));
-    //   });
+    testWidgets('should a loading when paginating', (tester) async {
+      final initialState = MoviesStateLoaded(paginableMovies.copyWith(
+        page: 1,
+        data: [
+          ...paginableMovies.data,
+          ...paginableMovies.data,
+          ...paginableMovies.data,
+          ...paginableMovies.data,
+        ],
+        total: 100,
+        totalPages: 90,
+      ));
 
-    //   await createWidget(
-    //     tester: tester,
-    //     widget: const MoviesPage(),
-    //   );
+      whenListen(
+        moviesCubit,
+        Stream.fromIterable([
+          initialState,
+          MoviesStatePaginating(initialState.movies),
+        ]),
+        initialState: initialState,
+      );
 
-    //   when(() => moviesCubit.getMovies(
-    //         paginate: true,
-    //         year: any(named: 'year'),
-    //         winnersOnly: any(named: 'winnersOnly'),
-    //       )).thenAnswer((_) async {
-    //     // when(() => moviesCubit.state).thenReturn(
-    //     //     MoviesStateLoaded(paginableMovies.copyWith(page: 1, data: [])));
-    //   });
+      when(() => moviesCubit.getMovies()).thenAnswer((_) async {});
 
-    //   when(() => moviesCubit.state).thenReturn(
-    //       MoviesStatePaginating(paginableMovies.copyWith(page: 1, data: [])));
+      await createWidget(
+        tester: tester,
+        widget: const MoviesPage(),
+      );
 
-    //   await tester.fling(
-    //     find.byType(ListView),
-    //     const Offset(0.0, -500.0),
-    //     2000.0,
-    //   );
-    //   await tester.pump();
-    //   // await waitFor(tester, find.byType(CircularProgressIndicator));
-    //   expect(find.byType(CircularProgressIndicator), findsOneWidget);
-    // });
+      await tester.fling(
+        find.byType(ListView),
+        const Offset(0.0, -500.0),
+        2000.0,
+      );
+      await tester.pump();
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    });
   });
 }
