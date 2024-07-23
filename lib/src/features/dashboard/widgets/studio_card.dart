@@ -38,7 +38,7 @@ class StudioCard extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          16.height,
+          const Spacer(),
           ResultValue(
             label: 'Wins Count:',
             value: studio.winCount.toString(),
